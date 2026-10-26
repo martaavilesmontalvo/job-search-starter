@@ -11,11 +11,13 @@ function validateState(raw){if(!raw||raw.version!==1||!Array.isArray(raw.roles)|
 function screen(role,must=''){
  if(role.constraints==='not-met'&&role.constraintEvidence.trim())return {status:'Set aside',reason:role.constraintEvidence};
  if(role.fit==='mismatch'&&role.fitEvidence.trim())return {status:'Set aside',reason:role.fitEvidence};
- const constraintsOK=role.constraints==='none'||role.constraints==='met'&&role.constraintEvidence.trim();
+ const conflictingRequirements=role.constraints==='none'&&must.trim();
+ const constraintsOK=role.constraints==='none'&&!must.trim()||role.constraints==='met'&&role.constraintEvidence.trim();
  if(role.fit==='credible'&&role.fitEvidence.trim()&&constraintsOK)return {status:'Ready to compare',reason:role.fitEvidence};
  let reason='Check the core work and responsibility level against your experience.';
  if(role.fit==='mismatch'&&!role.fitEvidence.trim())reason='Record the evidence for the mismatch before ruling this opening out.';
  else if(role.constraints==='not-met'&&!role.constraintEvidence.trim())reason='Name the firm requirement and the evidence for the dealbreaker.';
+ else if(conflictingRequirements)reason='You have firm requirements saved. Check this opening against them, or update your requirements.';
  else if(role.fit==='credible'&&role.fitEvidence.trim()&&!constraintsOK)reason='Confirm the firm requirements, or choose that you have none.';
  else if(role.fit==='credible'&&!role.fitEvidence.trim())reason='Add the relevant or transferable experience supporting your case.';
  return {status:'Clarify',reason};
