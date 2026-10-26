@@ -10,10 +10,11 @@ dialog{max-width:520px;width:calc(100% - 36px);border:1px solid var(--line);bord
 .priority-row{display:grid;grid-template-columns:2fr 1fr;gap:12px;border:1px solid var(--line);border-radius:8px;padding:15px;margin:14px 0}.priority-row textarea{min-height:72px}.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.9rem}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}caption{text-align:left;font-weight:700;margin:12px 0}
 @media(max-width:700px){.wrap{padding:0 16px}section{padding:20px}.grid,.cards,.guide{grid-template-columns:1fr}.wide{grid-column:auto}header{padding:28px 0}h2{font-size:1.4rem}.actions button{flex:1}.toolbar{display:block}.toolbar .field{margin-bottom:12px}.prompt{min-height:420px}}
 @media print{header{background:white;color:black}nav,.actions,form,#feedback,.storage{display:none!important}section{break-inside:avoid}.prompt{min-height:900px}body{background:white}.wrap{max-width:none}}
+nav.site-tabs a[aria-current="page"]{background:var(--cream);color:var(--ink);font-weight:700}nav.site-tabs a{border-radius:8px 8px 0 0}
 </style>
 </head>
 <body>
-<header><div class="wrap"><div class="eyebrow">Order to Ambiguity · Marta Avilés Montalvo</div><h1>Find work worth exploring.</h1><p class="intro">Start with a summary you already have, or build a short brief.</p></div></header>
+<header><div class="wrap"><div class="eyebrow">Order to Ambiguity · Marta Avilés Montalvo</div><h1>Find work worth exploring.</h1><p class="intro">Start with a summary you already have, or build a short brief.</p><nav class="site-tabs" aria-label="Job search tools"><a href="index.html" aria-current="page">Search setup</a><a href="compare.html">Compare openings</a></nav></div></header>
 <main class="wrap">
 <div id="storage-warning" class="notice hidden" role="status" aria-live="polite"></div>
 <div id="feedback" class="sr-only" role="status" aria-live="polite">Choose a starting point.</div>
